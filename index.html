@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nature North London — connecting community growing and biodiversity across North London.">
+  <title>Nature North London</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/map.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Nature North London home">
+      <span class="brand-mark"><img src="assets/tree-mark.svg" alt=""></span>
+      <span>Nature<br>North London</span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="#map">Explore map</a><a href="#work">Our work</a><a href="#get-involved">Get involved</a>
+      <a class="nav-cta" href="mailto:hello@naturenorthlondon.example">Contact us</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Connecting communities, restoring wildlife</p>
+        <h1>Connecting nature <em>across the city.</em></h1>
+        <p class="intro">Nature North London is a collaborative network of organisations working to strengthen habitats and wildlife corridors radiating out from Hampstead Heath.</p>
+        <div class="hero-actions"><a class="button primary" href="#map">Explore local projects <span>↘</span></a><a class="text-link" href="#get-involved">Join the network →</a></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="sun"></div><div class="leaf leaf-a"></div><div class="leaf leaf-b"></div>
+        <img class="hero-tree" src="assets/tree-mark.svg" alt="">
+        <div class="hero-card"><span>Across North London</span><strong id="project-count">6</strong><small>illustrative projects connected</small></div>
+        <svg viewBox="0 0 500 500"><path d="M37 411C112 350 94 267 184 245s85-145 173-113 57 139 111 190"/><path d="M36 338c105-2 125 76 217 50s103-105 218-74"/><circle cx="184" cy="245" r="9"/><circle cx="357" cy="132" r="9"/><circle cx="253" cy="388" r="9"/></svg>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Our focus"><div>Community growing <span>✦</span> Connected habitats <span>✦</span> Local action <span>✦</span> Shared knowledge <span>✦</span> Community growing</div></section>
+
+    <section class="map-section" id="map">
+      <div class="section-heading"><div><p class="eyebrow">Explore the network</p><h2>Find projects in the <em>green corridors</em></h2></div><p>Every marker is a place where people and nature meet. Filter the map, select a marker, then follow the project link to learn more.</p></div>
+      <div class="filters" aria-label="Filter projects"><button class="filter active" data-filter="All">All projects</button></div>
+      <div class="map-layout">
+        <div class="map-canvas" id="map-canvas" role="region" aria-label="Interactive OpenStreetMap showing parks in North London">
+          <iframe title="OpenStreetMap of North London parks" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.2600%2C51.5200%2C-0.0150%2C51.6800&amp;layer=mapnik"></iframe>
+          <a class="open-map-link" href="https://www.openstreetmap.org/#map=11/51.600/-0.138" target="_blank" rel="noopener">Open full map ↗</a>
+        </div>
+        <aside class="project-panel" id="project-panel" aria-live="polite"><div class="panel-empty"><span class="panel-icon">⌖</span><h3>Choose a project</h3><p>Select a map marker or project below to see its story.</p></div></aside>
+      </div>
+      <div class="park-directory" id="park-directory" aria-label="Named parks shown on the map"></div>
+      <div class="project-list" id="project-list"></div>
+      <p class="data-note"><strong>Map note:</strong> the base map and named park locations show real geography. Community project names and descriptions are illustrative placeholders, ready to replace with verified Nature North London data.</p>
+    </section>
+
+    <section class="network-statement" aria-labelledby="network-title">
+      <img src="assets/tree-mark.svg" alt="Nature North London tree symbol">
+      <div><p class="eyebrow">Nature North London</p><h2 id="network-title">Connecting nature across the city</h2><p>A collaborative network of organisations working to strengthen habitats and wildlife corridors radiating out from Hampstead Heath.</p></div>
+    </section>
+
+    <section class="work-section" id="work">
+      <p class="eyebrow">What connects us</p><div class="section-heading"><h2>Small patches.<br><em>One living network.</em></h2><p>Nature does not stop at borough boundaries. By working along shared corridors, local projects can make a bigger difference together.</p></div>
+      <div class="work-grid">
+        <article><span>01</span><div class="work-icon">♧</div><h3>Grow together</h3><p>Support community gardens, orchards and food-growing spaces with shared resources and peer learning.</p></article>
+        <article><span>02</span><div class="work-icon">⌁</div><h3>Connect habitats</h3><p>Strengthen green routes so pollinators, birds and other wildlife can move through the city.</p></article>
+        <article><span>03</span><div class="work-icon">◌</div><h3>Share knowledge</h3><p>Make practical local knowledge visible—from seed saving to habitat surveys and accessible volunteering.</p></article>
+      </div>
+    </section>
+
+    <section class="join-section" id="get-involved">
+      <div><p class="eyebrow">Make your patch part of the picture</p><h2>Growing something good<br>in North London?</h2></div>
+      <div><p>Whether you run a garden, support a friends group or simply want to lend a hand, there is a place for you in the network.</p><a class="button light" href="mailto:hello@naturenorthlondon.example?subject=Join%20the%20Nature%20North%20London%20network">Tell us about your project <span>↗</span></a></div>
+    </section>
+  </main>
+  <footer><div class="brand footer-brand"><span class="brand-mark"><img src="assets/tree-mark.svg" alt=""></span><span>Nature<br>North London</span></div><p>Connecting communities, restoring wildlife.</p><div><a href="#map">Project map</a><a href="#work">Our work</a><a href="mailto:hello@naturenorthlondon.example">Email us</a></div><small>Template website · Replace placeholder details before publishing</small></footer>
+  <script src="data/parks.js"></script><script src="data/projects.js"></script><script src="assets/app.js"></script>
+</body>
+</html>

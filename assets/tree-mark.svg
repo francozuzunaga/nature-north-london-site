@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" role="img" aria-labelledby="title desc">
+  <title id="title">Nature North London tree</title>
+  <desc id="desc">A broad leafy tree with visible roots, inspired by the supplied Nature North London presentation.</desc>
+  <g fill="#3f6f3d">
+    <circle cx="120" cy="62" r="42"/><circle cx="77" cy="77" r="33"/><circle cx="163" cy="78" r="34"/>
+    <circle cx="57" cy="111" r="29"/><circle cx="98" cy="104" r="39"/><circle cx="143" cy="108" r="39"/><circle cx="184" cy="111" r="29"/>
+    <circle cx="83" cy="139" r="31"/><circle cx="120" cy="139" r="35"/><circle cx="159" cy="139" r="31"/>
+  </g>
+  <g fill="none" stroke="#8c5a32" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M119 211c-1-40 2-72 1-103M120 159L87 111M120 148l34-54M119 178L76 146M121 179l45-38" stroke-width="15"/>
+    <path d="M118 204c-9 14-21 25-43 34M121 203c8 15 22 27 43 35M110 213c-4 13-10 23-21 33M130 213c5 13 12 24 23 33M117 215v33" stroke-width="7"/>
+  </g>
+</svg>
