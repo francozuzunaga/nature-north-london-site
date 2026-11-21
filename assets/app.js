@@ -1,57 +1,7 @@
-const projects = window.NNL_PROJECTS || [];
-const parks = window.NNL_PARKS || [];
-const list = document.querySelector('#project-list');
-const parkDirectory = document.querySelector('#park-directory');
-const panel = document.querySelector('#project-panel');
-const filters = document.querySelector('.filters');
-let activeFilter = 'All';
-
-document.querySelector('#project-count').textContent = projects.length;
-const types = [...new Set(projects.map(p => p.type))].sort();
-types.forEach(type => {
-  const button = document.createElement('button');
-  button.className = 'filter'; button.dataset.filter = type; button.textContent = type;
-  filters.append(button);
-});
-
-function safe(value) { const span = document.createElement('span'); span.textContent = value; return span.innerHTML; }
-function osmLink(lat, lng, zoom = 16) { return `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=${zoom}/${lat}/${lng}`; }
-
-parks.forEach(park => {
-  const link = document.createElement('a');
-  link.href = osmLink(park.lat, park.lng); link.target = '_blank'; link.rel = 'noopener';
-  link.innerHTML = `<span>●</span><strong>${safe(park.name)}</strong><small>${safe(park.kind)} · ${safe(park.borough)}</small>`;
-  parkDirectory.append(link);
-});
-
-function selectProject(id) {
-  const p = projects.find(item => item.id === id); if (!p) return;
-  document.querySelectorAll('[data-project]').forEach(el => el.classList.toggle('selected', el.dataset.project === id));
-  panel.innerHTML = `<div class="panel-top"><span>${safe(p.status)}</span><button aria-label="Close project details">×</button></div><p class="panel-corridor">${safe(p.corridor)}</p><h3>${safe(p.name)}</h3><p class="panel-summary">${safe(p.summary)}</p><div class="tags">${p.activities.map(a => `<span>${safe(a)}</span>`).join('')}</div><dl><div><dt>Borough</dt><dd>${safe(p.borough)}</dd></div><div><dt>Project type</dt><dd>${safe(p.type)}</dd></div></dl><a class="map-location-link" href="${osmLink(p.lat, p.lng)}" target="_blank" rel="noopener">View this location on OpenStreetMap ↗</a><a class="button primary panel-link" href="${safe(p.link)}" target="_blank" rel="noopener">Visit project website <span>↗</span></a>`;
-  panel.querySelector('button').addEventListener('click', () => {
-    panel.innerHTML = '<div class="panel-empty"><span class="panel-icon">⌖</span><h3>Choose a project</h3><p>Select a project below to see its story.</p></div>';
-    document.querySelectorAll('.selected').forEach(e => e.classList.remove('selected'));
-  });
-  if (window.innerWidth < 850) panel.scrollIntoView({behavior:'smooth', block:'nearest'});
-}
-
-function render() {
-  const shown = projects.filter(p => activeFilter === 'All' || p.type === activeFilter);
-  list.innerHTML = '';
-  shown.forEach((p, i) => {
-    const card = document.createElement('button');
-    card.className = 'project-card'; card.dataset.project = p.id;
-    card.innerHTML = `<span class="card-number">${String(i+1).padStart(2,'0')}</span><span><small>${safe(p.borough)} · ${safe(p.type)}</small><strong>${safe(p.name)}</strong><em>${safe(p.corridor)}</em></span><i>↗</i>`;
-    card.addEventListener('click', () => selectProject(p.id)); list.append(card);
-  });
-}
-
-filters.addEventListener('click', e => {
-  if (!e.target.matches('.filter')) return;
-  activeFilter = e.target.dataset.filter;
-  document.querySelectorAll('.filter').forEach(b => b.classList.toggle('active', b === e.target)); render();
-});
-const menuButton = document.querySelector('.menu-button'); const nav = document.querySelector('#site-nav');
-menuButton.addEventListener('click', () => { const open = menuButton.getAttribute('aria-expanded') === 'true'; menuButton.setAttribute('aria-expanded', String(!open)); nav.classList.toggle('open', !open); });
-nav.addEventListener('click', () => { menuButton.setAttribute('aria-expanded','false'); nav.classList.remove('open'); });
-render();
+const projects=window.NNL_PROJECTS||[];const parks=window.NNL_PARKS||[];const safe=value=>{const span=document.createElement('span');span.textContent=value??'';return span.innerHTML};const osmLink=(lat,lng,zoom=16)=>`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=${zoom}/${lat}/${lng}`;
+const menuButton=document.querySelector('.menu-button'),nav=document.querySelector('#site-nav');if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open',!open)});nav.addEventListener('click',()=>{menuButton.setAttribute('aria-expanded','false');nav.classList.remove('open')})}const projectCount=document.querySelector('#project-count');if(projectCount)projectCount.textContent=projects.length;
+const list=document.querySelector('#project-list'),parkDirectory=document.querySelector('#park-directory'),panel=document.querySelector('#project-panel'),filters=document.querySelector('.filters');let activeFilter='All';if(parkDirectory)parks.forEach(park=>{const link=document.createElement('a');link.href=osmLink(park.lat,park.lng);link.target='_blank';link.rel='noopener';link.innerHTML=`<span>●</span><strong>${safe(park.name)}</strong><small>${safe(park.kind)} · ${safe(park.borough)}</small>`;parkDirectory.append(link)});
+function selectProject(id){const p=projects.find(item=>item.id===id);if(!p||!panel)return;document.querySelectorAll('[data-project]').forEach(el=>el.classList.toggle('selected',el.dataset.project===id));panel.innerHTML=`<div class="panel-top"><span>${safe(p.status)}</span><button aria-label="Close project details">×</button></div><p class="panel-corridor">${safe(p.corridor)}</p><h3>${safe(p.name)}</h3><p class="panel-summary">${safe(p.summary)}</p><div class="tags">${p.activities.map(a=>`<span>${safe(a)}</span>`).join('')}</div><dl><div><dt>Borough</dt><dd>${safe(p.borough)}</dd></div><div><dt>Project type</dt><dd>${safe(p.type)}</dd></div></dl><a class="map-location-link" href="${osmLink(p.lat,p.lng)}" target="_blank" rel="noopener">View on OpenStreetMap</a><a class="button primary panel-link" href="${safe(p.link)}" target="_blank" rel="noopener">Visit project website</a>`;panel.querySelector('button').addEventListener('click',()=>{panel.innerHTML='<div class="panel-empty"><span class="panel-icon">⌖</span><h3>Explore the map</h3><p>Use the layer controls, select a zone or choose a project marker.</p></div>';document.querySelectorAll('.selected').forEach(e=>e.classList.remove('selected'))})}window.selectProject=selectProject;
+function renderProjects(){if(!list)return;const shown=projects.filter(p=>activeFilter==='All'||p.type===activeFilter);list.innerHTML='';shown.forEach((p,i)=>{const card=document.createElement('button');card.className='project-card';card.dataset.project=p.id;card.innerHTML=`<span class="card-number">${String(i+1).padStart(2,'0')}</span><span><small>${safe(p.borough)} · ${safe(p.type)}</small><strong>${safe(p.name)}</strong><em>${safe(p.corridor)}</em></span><i>View</i>`;card.addEventListener('click',()=>selectProject(p.id));list.append(card)})}if(filters){[...new Set(projects.map(p=>p.type))].sort().forEach(type=>{const button=document.createElement('button');button.className='filter';button.dataset.filter=type;button.textContent=type;filters.append(button)});filters.addEventListener('click',e=>{if(!e.target.matches('.filter'))return;activeFilter=e.target.dataset.filter;document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b===e.target));renderProjects()})}renderProjects();
+const organisations=[{name:'Heath Hands',borough:'Camden and Barnet',focus:'Conservation volunteering · Hampstead Heath',site:'https://www.heath-hands.org.uk/'},{name:'London Wildlife Trust',borough:'London-wide',focus:'Wildlife conservation · Nature reserves · Community action',site:'https://www.wildlondon.org.uk/'},{name:'The Conservation Volunteers',borough:'London-wide',focus:'Community conservation · Volunteering · Green skills',site:'https://www.tcv.org.uk/london/'},{name:'Camden Green Gym',borough:'Camden',focus:'Health and wellbeing · Conservation volunteering',site:'https://www.tcv.org.uk/london/green-gym/'},{name:'Haringey Friends of Parks Forum',borough:'Haringey',focus:'Friends groups · Parks · Community organising',site:'https://www.haringeyfriendsofparks.org.uk/'},{name:'Barnet Environment Centre',borough:'Barnet',focus:'Environmental learning · Community projects',site:'https://www.barnetenvironment.org.uk/'}];const directoryList=document.querySelector('#directory-list'),directorySearch=document.querySelector('#directory-search'),directoryEmpty=document.querySelector('#directory-empty');function renderDirectory(query=''){if(!directoryList)return;const needle=query.trim().toLowerCase(),matches=organisations.filter(org=>`${org.name} ${org.borough} ${org.focus}`.toLowerCase().includes(needle));directoryList.innerHTML=matches.map(org=>`<article><div><p>${safe(org.borough)}</p><h3>${safe(org.name)}</h3><span>${safe(org.focus)}</span></div><a href="${safe(org.site)}" target="_blank" rel="noopener">Visit website</a></article>`).join('');if(directoryEmpty)directoryEmpty.hidden=matches.length>0}if(directorySearch)directorySearch.addEventListener('input',e=>renderDirectory(e.target.value));renderDirectory();
+function mailForm(form,subject,builder){if(!form)return;form.addEventListener('submit',event=>{event.preventDefault();const data=new FormData(form);location.href=`mailto:naturenorthlondon@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(builder(data))}`})}mailForm(document.querySelector('#contact-form'),'Nature North London website enquiry',d=>`Name: ${d.get('name')}\nEmail: ${d.get('email')}\n\n${d.get('message')}`);mailForm(document.querySelector('#project-form'),'Submit a project to the Nature North London map',d=>`Project: ${d.get('project')}\nOrganisation: ${d.get('organisation')}\nLocation or map link: ${d.get('location')}\nWebsite: ${d.get('website')}\nContact email: ${d.get('email')}\n\nDescription:\n${d.get('description')}`);mailForm(document.querySelector('#mailing-list-form'),'Join the Nature North London mailing list',d=>`Name: ${d.get('name')}\nNeighbourhood: ${d.get('neighbourhood')}\nOrganisation: ${d.get('organisation')||'Not provided'}`);
