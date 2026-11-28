@@ -1,76 +1,76 @@
-// EDIT THIS FILE to add, remove, or update projects.
-// Coordinates are real latitude/longitude positions. Project descriptions remain illustrative placeholders.
+// EDIT THIS FILE to add, remove, or update Nature North London organisations.
+// Organisation information comes from the NNL attendee guide. Coordinates identify the named sites on OpenStreetMap.
 window.NNL_PROJECTS = [
   {
-    id: "finsbury-park-growing-space",
-    name: "Finsbury Park Growing Space",
+    id: "friends-of-queens-wood",
+    name: "Friends of Queen’s Wood",
     borough: "Haringey",
-    corridor: "Railway & Park Corridor",
-    type: "Community garden",
-    lat: 51.5712, lng: -0.1009,
-    summary: "A volunteer-led growing space connecting neighbours with seasonal food, composting and pollinator planting.",
-    activities: ["Volunteer days", "Food growing", "Composting"],
-    link: "https://example.org/finsbury-park-growing-space",
-    status: "Illustrative project"
+    corridor: "Queen’s Wood and Highgate Wood",
+    type: "Woodland conservation",
+    lat: 51.5812413, lng: -0.1430529,
+    summary: "A voluntary group helping to care for one of London’s remaining pockets of ancient woodland and its trees, plants, birds, animals, fungi and other wildlife.",
+    activities: ["Ancient woodland", "Wildlife", "Volunteering"],
+    link: "https://www.fqw.org.uk/",
+    status: "NNL network organisation"
   },
   {
-    id: "lee-valley-pollinator-path",
-    name: "Lee Valley Pollinator Path",
-    borough: "Waltham Forest",
-    corridor: "Lee Valley Corridor",
-    type: "Pollinator habitat",
-    lat: 51.5846, lng: -0.0500,
-    summary: "Pocket meadows and insect-friendly planting that help wildlife move between green spaces along the Lea Valley.",
-    activities: ["Wildflower planting", "Species surveys", "Schools"],
-    link: "https://example.org/lee-valley-pollinator-path",
-    status: "Illustrative project"
-  },
-  {
-    id: "brent-river-orchard",
-    name: "Brent River Community Orchard",
-    borough: "Barnet",
-    corridor: "Brent River Corridor",
-    type: "Community orchard",
-    lat: 51.5877, lng: -0.2290,
-    summary: "A young orchard restoring a riverside habitat while creating a shared place for learning and harvest days.",
-    activities: ["Orchard care", "River restoration", "Harvest events"],
-    link: "https://example.org/brent-river-orchard",
-    status: "Illustrative project"
-  },
-  {
-    id: "camley-street-seed-circle",
-    name: "Camley Street Seed Circle",
+    id: "friends-of-waterlow-park",
+    name: "Friends of Waterlow Park",
     borough: "Camden",
-    corridor: "Regent’s Canal Corridor",
-    type: "Community garden",
-    lat: 51.5355, lng: -0.1296,
-    summary: "A compact canal-side garden sharing locally adapted seed, gardening knowledge and space for urban nature.",
-    activities: ["Seed swaps", "Workshops", "Canal ecology"],
-    link: "https://example.org/camley-street-seed-circle",
-    status: "Illustrative project"
+    corridor: "Heath to Highgate",
+    type: "Park friends group",
+    lat: 51.5684751, lng: -0.1445816,
+    summary: "An independent local amenity group representing park users and creating opportunities for practical volunteering in Waterlow Park.",
+    activities: ["Park stewardship", "Volunteering", "Community"],
+    link: "https://waterlowpark.org.uk/",
+    status: "NNL network organisation"
   },
   {
-    id: "new-river-nature-patch",
-    name: "New River Nature Patch",
-    borough: "Enfield",
-    corridor: "New River Corridor",
-    type: "Habitat restoration",
-    lat: 51.6338, lng: -0.1034,
-    summary: "Community-managed native planting and small wetland features strengthening a north–south wildlife route.",
-    activities: ["Pond care", "Native planting", "Nature walks"],
-    link: "https://example.org/new-river-nature-patch",
-    status: "Illustrative project"
+    id: "friends-of-parkland-walk",
+    name: "Friends of the Parkland Walk",
+    borough: "Haringey",
+    corridor: "Parkland Walk",
+    type: "Nature reserve",
+    lat: 51.5747519, lng: -0.1269892,
+    summary: "Volunteers help conserve London’s longest linear nature reserve, a four-kilometre wildlife trail linking neighbourhoods and habitats.",
+    activities: ["Nature reserve", "Weekly volunteering", "Habitat care"],
+    link: "https://parkland-walk.org.uk/",
+    status: "NNL network organisation"
   },
   {
-    id: "hampstead-heath-kitchen-garden",
-    name: "Heath Kitchen Garden Network",
+    id: "kentish-town-city-farm",
+    name: "Kentish Town City Farm",
     borough: "Camden",
-    corridor: "Heath & Woods Corridor",
-    type: "Food growing",
-    lat: 51.5608, lng: -0.1662,
-    summary: "A neighbourhood network linking small growing plots, shared tools and food-growing sessions near the Heath.",
-    activities: ["Food growing", "Tool share", "Skills sessions"],
-    link: "https://example.org/heath-kitchen-garden",
-    status: "Illustrative project"
+    corridor: "Camden Nature Corridor",
+    type: "City farm",
+    lat: 51.5524997, lng: -0.1494603,
+    summary: "A unique rural environment in the city, home to farm animals and abundant birdlife and located on the Camden Nature Corridor.",
+    activities: ["Urban nature", "Learning", "Community"],
+    link: "https://ktcityfarm.org.uk/",
+    status: "NNL network organisation"
+  },
+  {
+    id: "kenwood-house",
+    name: "Kenwood House – English Heritage",
+    borough: "Camden",
+    corridor: "Hampstead Heath ecological core",
+    type: "Historic landscape",
+    lat: 51.5715493, lng: -0.1673367,
+    summary: "Tranquil landscaped gardens surrounding Kenwood House form an important green space on the northern edge of Hampstead Heath.",
+    activities: ["Historic landscape", "Gardens", "Public green space"],
+    link: "https://www.english-heritage.org.uk/visit/places/kenwood/",
+    status: "NNL network organisation"
+  },
+  {
+    id: "crouch-end-open-space",
+    name: "Crouch End Open Space",
+    borough: "Haringey",
+    corridor: "Highgate Wood to Crouch End",
+    type: "Open-space conservation",
+    lat: 51.5813300, lng: -0.1362953,
+    summary: "A conservation charity protecting Crouch End Open Space for public recreation and conserving its surrounding woodlands as wildlife habitat.",
+    activities: ["Woodland", "Wildlife habitat", "Public recreation"],
+    link: "https://crouchendopenspace.org/",
+    status: "NNL network organisation"
   }
 ];
